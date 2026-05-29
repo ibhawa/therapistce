@@ -990,7 +990,7 @@ function renderResourcesLesson(lesson) {
       <p>Peer-reviewed sources, clinical manuals, session demonstrations, and downloadable tools that form the evidence base for this module.</p>
     </div>
     ${lesson.resources.map(r => `
-      <div class="resource-item" onclick="showToast('${r.title} — would open/download in production', 'info')">
+      <div class="resource-item" onclick="${r.url ? `window.open('${r.url}', '_blank')` : `showToast('Coming soon', 'info')`}" style="cursor:pointer"
         <div class="resource-icon-box ${colorMap[r.type]}">
           <i class="ti ${iconMap[r.type] || 'ti-file'}"></i>
         </div>
